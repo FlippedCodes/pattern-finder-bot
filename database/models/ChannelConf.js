@@ -18,4 +18,8 @@ module.exports = sequelize.define('ChannelConf', {
     type: Sequelize.BOOLEAN,
     allowNull: false,
   },
+  invert: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+  },
 });
