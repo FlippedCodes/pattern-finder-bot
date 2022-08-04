@@ -7,7 +7,7 @@ async function searchUser(ID) {
 
 function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, teammemberTag, updated, created) {
   const embed = new EmbedBuilder()
-    .setColor('GREEN')
+    .setColor('Green')
     .setTitle(`${userTag}`)
     .addFields([
       { name: 'ID', value: userID, inline: true },

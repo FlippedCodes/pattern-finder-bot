@@ -60,7 +60,7 @@ function sendToVerification(message, date, currentCheckin) {
 async function checkinOngoing(message, reason) {
   const embed = new EmbedBuilder()
     .setTitle('Verification ongoing')
-    .setColor('BLUE')
+    .setColor('Blue')
     .setDescription(reason);
   // send message back to user
   const inServerReply = await message.author.send({ embeds: [embed] })
@@ -73,7 +73,7 @@ async function checkinOngoing(message, reason) {
 async function checkinFailed(message, reason) {
   const embed = new EmbedBuilder()
     .setTitle('Verification declied')
-    .setColor('RED')
+    .setColor('Red')
     .setDescription(reason);
   // send message back to user
   const inServerReply = await message.author.send({ content: `Your Message:\n${message.content}`, embeds: [embed] })

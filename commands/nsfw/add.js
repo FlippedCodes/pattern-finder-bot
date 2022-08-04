@@ -5,7 +5,7 @@ function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, teamm
   const embed = new EmbedBuilder();
 
   embed
-    .setColor('GREEN')
+    .setColor('Green')
     .setDescription(`${userTag} got added to the DB!`)
     .addFields([
       { name: 'ID', value: userID, inline: true },

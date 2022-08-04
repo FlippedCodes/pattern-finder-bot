@@ -32,7 +32,7 @@ global.ERR = (err) => {
   const embed = new EmbedBuilder()
     .setAuthor({ name: `Error: '${err.message}'` })
     .setDescription(`STACKTRACE:\n\`\`\`${err.stack.slice(0, 4000)}\`\`\``)
-    .setColor('RED');
+    .setColor('Red');
   client.channels.cache.get(config.logChannelID).send({ embeds: [embed] });
   return;
 };

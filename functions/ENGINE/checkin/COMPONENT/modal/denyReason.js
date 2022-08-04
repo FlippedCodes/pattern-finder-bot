@@ -16,11 +16,11 @@ module.exports.run = async (interaction) => {
     // .setDescription('Your Verification has been denied!')
     .addField('Reason', reason)
     .addField('Denied by', `${interaction.user}`)
-    .setColor('RED');
+    .setColor('Red');
   const embedLog = new EmbedBuilder()
     .setTitle('Verification denied')
     .setDescription(oldEmbed.description)
-    .setColor('RED')
+    .setColor('Red')
     .setThumbnail(oldEmbed.thumbnail.url)
     .addField('Reason', reason)
     .addField('Denied by', `${interaction.user}`)

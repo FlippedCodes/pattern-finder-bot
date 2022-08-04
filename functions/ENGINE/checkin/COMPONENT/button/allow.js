@@ -10,11 +10,11 @@ module.exports.run = async (interaction) => {
   const embedUser = new EmbedBuilder()
     .setTitle('Verification allowed')
     .setDescription('Your Verification has been allowed. Have fun in the server!')
-    .setColor('GREEN');
+    .setColor('Green');
   const embedLog = new EmbedBuilder()
     .setTitle('Verification allowed')
     .setDescription(oldEmbed.description)
-    .setColor('GREEN')
+    .setColor('Green')
     .setThumbnail(oldEmbed.thumbnail.url)
     .addField('Allowed by', `${interaction.user}`)
     .addFields(oldEmbed.fields);

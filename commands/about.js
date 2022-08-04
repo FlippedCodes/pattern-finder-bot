@@ -11,7 +11,7 @@ module.exports.run = async (interaction) => {
     }
     const embed = new EmbedBuilder();
     embed.setDescription(content)
-      .setColor('ORANGE')
+      .setColor('Orange')
       .setTitle('About');
     // .setThumbnail(config.commands.about.logo);
     reply(interaction, { embeds: [embed] });

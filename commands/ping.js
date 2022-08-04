@@ -4,7 +4,7 @@ const { EmbedBuilder } = require('discord.js');
 async function kickoff(interaction) {
   const sendMessage = await new EmbedBuilder()
     .setDescription('📤 Pong...')
-    .setColor('ORANGE');
+    .setColor('Orange');
   const sentMessage = await reply(interaction, { embeds: [sendMessage], fetchReply: true });
   return sentMessage;
 }
@@ -17,7 +17,7 @@ function editedMessage(sentMessage, interaction) {
   API latency is \`${api_latency}\`ms`;
   return new EmbedBuilder()
     .setDescription(body)
-    .setColor('GREEN');
+    .setColor('Green');
 }
 
 // posts ping message and edits it afterwards
