@@ -1,7 +1,7 @@
 const moment = require('moment');
 
 const {
-  MessageEmbed, MessageActionRow, MessageButton, TextInputComponent,
+  EmbedBuilder, MessageActionRow, MessageButton, TextInputComponent,
 } = require('discord.js');
 
 // const checkin = require('../../../database/models/Checkin');
@@ -42,7 +42,7 @@ function sendToVerification(message, date, currentCheckin) {
   const DoB = date.format('YYYY-MM-DD');
   const creationDate = moment(message.author.createdAt).format('X');
   const age = moment().diff(date, 'years');
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setAuthor({ name: message.author.tag })
     .setThumbnail(message.author.displayAvatarURL({ extension: 'png', size: 4096 }))
     .setDescription(message.content)
@@ -58,7 +58,7 @@ function sendToVerification(message, date, currentCheckin) {
 }
 
 async function checkinOngoing(message, reason) {
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setTitle('Verification ongoing')
     .setColor('BLUE')
     .setDescription(reason);
@@ -71,7 +71,7 @@ async function checkinOngoing(message, reason) {
 }
 
 async function checkinFailed(message, reason) {
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setTitle('Verification declied')
     .setColor('RED')
     .setDescription(reason);

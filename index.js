@@ -28,8 +28,8 @@ global.CmdBuilder = SlashCommandBuilder;
 global.ERR = (err) => {
   console.error('ERROR:', err);
   if (DEBUG) return;
-  const { MessageEmbed } = require('discord.js');
-  const embed = new MessageEmbed()
+  const { EmbedBuilder } = require('discord.js');
+  const embed = new EmbedBuilder()
     .setAuthor({ name: `Error: '${err.message}'` })
     .setDescription(`STACKTRACE:\n\`\`\`${err.stack.slice(0, 4000)}\`\`\``)
     .setColor('RED');

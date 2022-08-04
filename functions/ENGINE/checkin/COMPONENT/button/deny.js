@@ -1,5 +1,5 @@
 const {
-  MessageActionRow, Modal, TextInputComponent, MessageEmbed,
+  MessageActionRow, Modal, TextInputComponent, EmbedBuilder,
 } = require('discord.js');
 
 module.exports.run = async (interaction) => {

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 // const checkin = require('../../../../../database/models/Checkin');
 
@@ -7,11 +7,11 @@ module.exports.run = async (interaction) => {
   const userID = oldEmbed.fields.find((field) => field.name === 'ID').value;
   await checkin.update({ ongoing: false, alreadyChecked: true }, { where: { ID: userID } });
   const member = interaction.guild.members.cache.get(userID);
-  const embedUser = new MessageEmbed()
+  const embedUser = new EmbedBuilder()
     .setTitle('Verification allowed')
     .setDescription('Your Verification has been allowed. Have fun in the server!')
     .setColor('GREEN');
-  const embedLog = new MessageEmbed()
+  const embedLog = new EmbedBuilder()
     .setTitle('Verification allowed')
     .setDescription(oldEmbed.description)
     .setColor('GREEN')

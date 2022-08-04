@@ -5,8 +5,8 @@ async function searchUser(ID) {
   return result;
 }
 
-function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teammemberTag, updated, created) {
-  const embed = new MessageEmbed()
+function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, teammemberTag, updated, created) {
+  const embed = new EmbedBuilder()
     .setColor('GREEN')
     .setTitle(`${userTag}`)
     .addFields([
@@ -22,7 +22,7 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teamm
   interaction.reply({ embeds: [embed] });
 }
 
-module.exports.run = async (interaction, moment, MessageEmbed) => {
+module.exports.run = async (interaction, moment, EmbedBuilder) => {
   const command = interaction.options;
   // get user and ID
   const user = command.getUser('user', true);
@@ -41,7 +41,7 @@ module.exports.run = async (interaction, moment, MessageEmbed) => {
   const [updatedAt, createdAt] = [DBentry.updatedAt, DBentry.createdAt].map((date) => moment(date).format('ddd, MMM Do YYYY, h:mm a'));
   const formatDoB = moment(DoB).format(config.commands.DoBchecking.dateFormats[0]);
   // send it
-  sendMessage(MessageEmbed, interaction, user.tag, userID, age, formatDoB, teammemberTag, updatedAt, createdAt);
+  sendMessage(EmbedBuilder, interaction, user.tag, userID, age, formatDoB, teammemberTag, updatedAt, createdAt);
 };
 
 module.exports.data = { subcommand: true };
