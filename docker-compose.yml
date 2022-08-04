@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  app:
+    build:
+      context: ./
+    depends_on:
+      - db-hpr
+    restart: always
+    environment:
+      token_discord: ${token_discord}
+      db_dialect: mysql
+      db_host: db-hpr
+      db_name: hopperBot
+      db_user: hopperBot
+      db_passw: ${db_password}
+  db-hpr:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - "${db_port}:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${db_password_root}
+      MYSQL_DATABASE: hopperBot
+      MYSQL_USER: hopperBot
+      MYSQL_PASSWORD: ${db_password}
+
+networks:
+  default:
+    external:
+      name: nginx_backend
+
+volumes:
+  db_data:

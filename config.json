@@ -1,0 +1,49 @@
+{
+    "teamRole": "973088007865389086",
+    "logChannelID": "995512481810235443",
+    "setup": {
+        "setupFunctions": [
+            "SETUP_status",
+            "SETUP_initCommands",
+            "SETUP_DBSync"
+        ]
+    },
+    "customEmoji": {
+        "serverID": "959482565838917643",
+        "emoji": {
+            "allow": "988398536385241088"
+        }
+    },
+    "commands": {
+        "about": {
+            "text": "./about.txt",
+            "logo": "https://cdn.discordapp.com/avatars/534828939198070824/d1ed4e147d58e53944ee7ad93f77f44c.png?size=4096"
+        },
+        "DoBchecking": {
+            "dateFormats": ["YYYY-MM-DD", "MM/DD/YYYY"]
+        }
+    },
+    "functions": {
+        "messageCreate": {
+            "checkinChannelID": "995341586374336563"
+        },
+        "checkin": {
+            "checkinRole": "985238727238484030",
+            "roles": {
+                "add": {
+                    "allow": "985238727238484030",
+                    "allowNewComers": "959485204253265950",
+                    "deny": "994499182603816991"
+                },
+                "remove": "990662125502492682"
+            },
+            "outputChannels": {
+                "todo": "996157013702758431",
+                "log": "996194950511333456"
+            }
+        },
+        "commandSetup": {
+            "mainserver": "959482565838917643"
+        }
+    }
+}
