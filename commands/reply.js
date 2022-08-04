@@ -1,14 +1,12 @@
-const moment = require('moment');
-
 const { EmbedBuilder } = require('discord.js');
 
 module.exports.run = async (interaction) => {
   // only guild command
   if (!await interaction.inGuild()) return messageFail(interaction, 'This comamnd is for servers only.');
   // check if user is teammember
-  if (!interaction.member.roles.cache.has(config.teamRole)) return messageFail(interaction, 'You don\'t have access to this command! òwó');
+  if (!interaction.memberPermissions.has('MANAGE_GUILD')) return messageFail(interaction, `You are not authorized to use \`/${module.exports.data.name}\``);
   const subName = interaction.options.getSubcommand();
-  client.commands.get(`${interaction.commandName}_${subName}`).run(interaction, moment, EmbedBuilder);
+  client.commands.get(`${module.exports.data.name}_${subName}`).run(interaction, EmbedBuilder);
 };
 
 module.exports.data = new CmdBuilder()

@@ -8,12 +8,12 @@ module.exports.run = async (interaction) => {
   // check if user is teammember
   if (!interaction.member.roles.cache.has(config.teamRole)) return messageFail(interaction, 'You don\'t have access to this command! òwó');
   const subName = interaction.options.getSubcommand();
-  client.commands.get(`${interaction.commandName}_${subName}`).run(interaction, moment, EmbedBuilder);
+  client.commands.get(`${module.exports.data.name}_${subName}`).run(interaction, moment, EmbedBuilder);
 };
 
 module.exports.data = new CmdBuilder()
   .setName('config')
-  .setDescription('Manages nsfw access.')
+  .setDescription('Manage reply options for channels.')
   .addSubcommand((subcommand) => subcommand
     .setName('add')
     .setDescription('Adds an entry.')

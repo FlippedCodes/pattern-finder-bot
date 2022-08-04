@@ -1,7 +1,7 @@
 {
   "name": "pattern-finder-bot",
   "version": "1.0.0",
-  "description": "This bot find patterns in Biscord messages and attachments to reply to. This is great for automatic help replys. ",
+  "description": "This bot find patterns in Discord messages and attachments to reply to. This is great for automatic help replys. ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

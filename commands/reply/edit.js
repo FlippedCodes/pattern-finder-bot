@@ -32,7 +32,7 @@ function getAge(moment, DoB) {
   return age;
 }
 
-module.exports.run = async (interaction, moment, EmbedBuilder) => {
+module.exports.run = async (interaction, EmbedBuilder) => {
   const command = interaction.options;
   // get user and ID
   const user = command.getUser('user', true);
