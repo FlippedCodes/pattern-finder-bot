@@ -1,19 +1,21 @@
 // init Discord
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, IntentsBitField, Collection } = require('discord.js');
 // init file system
 const fs = require('fs');
 // init command builder
 const { SlashCommandBuilder } = require('@discordjs/builders');
+// use contructor to create intent bit field
+const intents = new IntentsBitField(
+  IntentsBitField.Flags.MessageContent,
+  IntentsBitField.Flags.Guilds,
+  IntentsBitField.Flags.GuildMessages,
+  IntentsBitField.Flags.GuildMembers,
+  );
+
 // setting essential global values; additional global values are set in the globalfunc.js file
 // init Discord client
-global.client = new Client({
-  disableEveryone: true,
-  intents: [
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILDS,
-  ],
-});
-// init config
+global.client = new Client({ disableEveryone: true, intents });
+// init config 
 global.config = require('./config.json');
 global.config.package = require('./package.json');
 

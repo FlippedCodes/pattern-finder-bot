@@ -1,4 +1,4 @@
-const userDoB = require('../../database/models/UserDoB');
+// const userDoB = require('../../database/models/UserDoB');
 
 function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teammemberTag) {
   // needs to be local as settings overlap from different embed-requests

@@ -1,18 +1,12 @@
 {
     "teamRole": "973088007865389086",
-    "logChannelID": "995512481810235443",
+    "logChannelID": "483642091851874314",
     "setup": {
         "setupFunctions": [
             "SETUP_status",
             "SETUP_initCommands",
             "SETUP_DBSync"
         ]
-    },
-    "customEmoji": {
-        "serverID": "959482565838917643",
-        "emoji": {
-            "allow": "988398536385241088"
-        }
     },
     "commands": {
         "about": {
@@ -41,9 +35,6 @@
                 "todo": "996157013702758431",
                 "log": "996194950511333456"
             }
-        },
-        "commandSetup": {
-            "mainserver": "959482565838917643"
         }
     }
 }

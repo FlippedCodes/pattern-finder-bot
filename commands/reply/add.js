@@ -1,4 +1,4 @@
-// const userDoB = require('../../database/models/UserDoB');
+const reply = require('../../database/models/Reply');
 
 function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teammemberTag) {
   // needs to be local as settings overlap from different embed-requests
@@ -6,7 +6,7 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teamm
 
   embed
     .setColor('GREEN')
-    .setDescription(`${userTag} got updated in the DB!`)
+    .setDescription(`${userTag} got added to the DB!`)
     .addFields([
       { name: 'ID', value: userID, inline: true },
       { name: 'Age', value: String(age), inline: true },
@@ -21,9 +21,9 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teamm
   interaction.guild.channels.cache.find(({ id }) => id === config.logChannelID).send(content);
 }
 
-async function updateUser(ID, DoB, teammemberID) {
-  if (!await userDoB.findOne({ where: { ID } }).catch(ERR)) return false;
-  await userDoB.update({ DoB, teammemberID }, { where: { ID } }).catch(ERR);
+async function addUser(ID, DoB, teammemberID) {
+  if (await reply.findOne({ where: { ID } }).catch(ERR)) return false;
+  await reply.findOrCreate({ where: { ID }, defaults: { DoB, teammemberID } }).catch(ERR);
   return true;
 }
 
@@ -46,13 +46,13 @@ module.exports.run = async (interaction, moment, MessageEmbed) => {
   // format date
   const formatDate = date.format(config.commands.DoBchecking.dateFormats[0]);
   // add entry
-  const added = await updateUser(userID, formatDate, interaction.user.id);
+  const added = await addUser(userID, formatDate, interaction.user.id);
   // report to user if entry added
   if (added) {
     // send log and user confirmation
     sendMessage(MessageEmbed, interaction, user.tag, userID, age, formatDate, interaction.user.tag);
   } else {
-    messageFail(interaction, 'Entry doesn\'t exist yet. Use the add command to add it first.');
+    messageFail(interaction, 'Entry already exists. Update it with the change command.');
   }
 };
 

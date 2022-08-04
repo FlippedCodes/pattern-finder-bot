@@ -7,10 +7,11 @@ function timeout(id, time) {
 
 module.exports.run = async (interaction) => {
   // debug protection
-  // if (!DEBUG && interaction.commandName.includes('_dev')) return;
-  // if (DEBUG && !interaction.commandName.includes('_dev')) return;
+  // debug protection
+  if (!DEBUG && interaction.commandName.includes('_dev')) return;
+  if (DEBUG && !interaction.commandName.includes('_dev')) return;
 
-  const mainCMD = interaction.commandName;
+  const mainCMD = interaction.commandName.replace('_dev', '');
   const command = client.commands.get(DEBUG ? mainCMD : interaction.commandName);
   if (command) {
     // if debuging trigger application thinking

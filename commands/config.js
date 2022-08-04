@@ -12,7 +12,7 @@ module.exports.run = async (interaction) => {
 };
 
 module.exports.data = new CmdBuilder()
-  .setName('nsfw')
+  .setName('config')
   .setDescription('Manages nsfw access.')
   .addSubcommand((subcommand) => subcommand
     .setName('add')

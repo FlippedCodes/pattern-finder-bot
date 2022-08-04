@@ -1,7 +1,7 @@
 {
-  "name": "hopper-bot",
+  "name": "pattern-finder-bot",
   "version": "1.0.0",
-  "description": "Yet another verification bot.",
+  "description": "This bot find patterns in Biscord messages and attachments to reply to. This is great for automatic help replys. ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -18,16 +18,17 @@
   },
   "homepage": "https://github.com/FlippedCodes/hopper-bot#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.15.0",
+    "@discordjs/builders": "^1.1.0",
     "bufferutil": "^4.0.6",
-    "discord.js": "^13.8.1",
+    "discord.js": "^14.1.2",
     "moment": "^2.29.4",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.2",
+    "sequelize": "^6.21.3",
+    "tesseract.js": "^2.1.5",
     "utf-8-validate": "^5.0.9"
   },
   "devDependencies": {
-    "eslint": "^8.19.0",
+    "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0"
   }

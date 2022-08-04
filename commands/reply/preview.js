@@ -1,7 +1,7 @@
-// const userDoB = require('../../database/models/UserDoB');
+const reply = require('../../database/models/Reply');
 
 async function searchUser(ID) {
-  const result = await userDoB.findOne({ where: { ID } }).catch(ERR);
+  const result = await reply.findOne({ where: { ID } }).catch(ERR);
   return result;
 }
 

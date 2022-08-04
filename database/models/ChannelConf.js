@@ -14,4 +14,8 @@ module.exports = sequelize.define('ChannelConf', {
     type: Sequelize.STRING(30),
     allowNull: false,
   },
+  pictureOCR: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+  },
 });

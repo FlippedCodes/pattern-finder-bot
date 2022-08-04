@@ -4,9 +4,9 @@ const {
   MessageEmbed, MessageActionRow, MessageButton, TextInputComponent,
 } = require('discord.js');
 
-const checkin = require('../../../database/models/Checkin');
+// const checkin = require('../../../database/models/Checkin');
 
-const userDoB = require('../../../database/models/UserDoB');
+// const userDoB = require('../../../database/models/UserDoB');
 
 const dateRegEx = /\d{4}[-]\d{2}[-]\d{2}/gm;
 
@@ -30,7 +30,7 @@ function sendToVerification(message, date, currentCheckin) {
     .addComponents([
       new MessageButton()
         .setCustomId('allow')
-        .setEmoji(client.guilds.cache.get(config.customEmoji.serverID).emojis.cache.get(config.customEmoji.emoji.allow))
+        .setEmoji('✅')
         .setLabel('Allow in')
         .setStyle('PRIMARY'),
       new MessageButton()

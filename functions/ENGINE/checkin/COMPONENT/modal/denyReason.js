@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 
-const checkin = require('../../../../../database/models/Checkin');
+// const checkin = require('../../../../../database/models/Checkin');
 
 module.exports.run = async (interaction) => {
   interaction.deferUpdate();

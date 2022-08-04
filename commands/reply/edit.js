@@ -1,4 +1,4 @@
-// const userDoB = require('../../database/models/UserDoB');
+const reply = require('../../database/models/Reply');
 
 function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teammemberTag) {
   // needs to be local as settings overlap from different embed-requests
@@ -22,8 +22,8 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, teamm
 }
 
 async function updateUser(ID, DoB, teammemberID) {
-  if (!await userDoB.findOne({ where: { ID } }).catch(ERR)) return false;
-  await userDoB.update({ DoB, teammemberID }, { where: { ID } }).catch(ERR);
+  if (!await reply.findOne({ where: { ID } }).catch(ERR)) return false;
+  await reply.update({ DoB, teammemberID }, { where: { ID } }).catch(ERR);
   return true;
 }
 
